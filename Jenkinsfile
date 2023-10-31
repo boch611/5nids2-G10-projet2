@@ -24,12 +24,12 @@ pipeline {
                 sh "mvn deploy"
             }
         }
-        stage('BUILD DOCKER IMAGE') {
-            steps { 
-               
-              sh 'docker build -t moetezbouchlaghem-5nids2-g10:tag .'
+         stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'sudo docker build -t moetezbouchlaghem-5nids2-g10:tag .'
+                }
             }
         }
-
 }
 }
