@@ -27,7 +27,7 @@ pipeline {
          stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'sudo docker build -t moetezbouchlaghem-5nids2-g10'
+                    sh 'sudo docker build -t moetezbouchlaghem-5nids2-g10 .'
                 }
             }
         }
