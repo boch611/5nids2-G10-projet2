@@ -26,7 +26,7 @@ pipeline {
         }
         stage('BUILD DOCKER IMAGE') {
             steps {
-                sh 'docker build --build-arg BUILDKIT_INLINE_CACHE=1 -t moetezbouchlaghem-5nids2-g10-projet2:tag .'
+                sh 'sudo docker build --build-arg BUILDKIT_INLINE_CACHE=1 -t moetezbouchlaghem-5nids2-g10-projet2:tag .'
             }
         }
 
