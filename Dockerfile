@@ -1,14 +1,15 @@
-# Utilisez une image de base
-FROM python:3.8
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:8-jdk-alpine
 
-# Copiez les fichiers du projet dans l'image
-COPY . /app
-
-# Définissez le répertoire de travail
+# Set the working directory within the container
 WORKDIR /app
 
-# Installez les dépendances
-RUN pip install -r requirements.txt
+# Copy the JAR file from your local machine to the container
+COPY target/kaddem-SNAPSHOT-0.1.jar /app/kaddem-SNAPSHOT-0.1.jar
 
-# Exécutez votre application
-CMD ["python", "app.py"]
+# Expose the port your Java application will run on
+EXPOSE 8082
+
+# Define the command to run your application
+CMD ["java", "-jar", "kaddem-SNAPSHOT-0.1.jar"]
+
