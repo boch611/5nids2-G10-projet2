@@ -36,6 +36,12 @@ pipeline {
                    }
        }
 
+       stage('DOCKERHUB') {
+                   steps {
+                       sh 'docker push mboch/moetezbouchlaghe-5nids2-g10'
+                   }
+               }
+
 
        stage('Docker Compose') {
                    steps {
