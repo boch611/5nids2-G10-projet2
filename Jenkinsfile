@@ -38,8 +38,8 @@ pipeline {
 
        stage('DOCKERHUB') {
                    steps {
-                       sh 'docker tag moetezbouchlaghe-5nids2-g10 mboch/moetezbouchlaghe-5nids2-g10:0.0.1'
-                       sh 'docker push mboch/moetezbouchlaghe-5nids2-g10:0.0.1'
+                       sh 'docker tag moetezbouchlaghe-5nids2-g10 mboch/moetezbouchlaghe-5nids2g10:0.0.1'
+                       sh 'docker push mboch/moetezbouchlaghe-5nids2g10:0.0.1'
                    }
                }
 
