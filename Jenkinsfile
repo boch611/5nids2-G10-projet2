@@ -36,12 +36,21 @@ pipeline {
                    }
        }
 
-       stage('DOCKERHUB') {
-                   steps {
-                       sh 'docker tag moetezbouchlaghe-5nids2-g10 mboch/moetezbouchlaghe-5nids2g10:1.0.0'
-                       sh 'docker push mboch/moetezbouchlaghe-5nids2g10:1.0.0'
-                   }
-               }
+      
+                stage('Build and Push Docker Image') {
+                           steps {
+                               script {
+                                   def dockerImage = 'moetezbouchlaghe-5nids2-g10:1.0.0'  // Replace with your image name and tag
+
+                                   // Authenticate with Docker Hub using the credentials
+                                   withCredentials([usernamePassword( usernameVariable: 'mboch', passwordVariable: 'boch987654321')]) {
+                                       sh """
+                                       docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD
+                                       docker push \$dockerImage
+                                       """
+                                   }
+                               }
+                           }
 
 
        stage('Docker Compose') {
