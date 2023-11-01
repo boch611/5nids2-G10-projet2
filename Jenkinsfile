@@ -23,7 +23,22 @@ pipeline {
             steps {
                 sh "mvn deploy"
             }
-        }
+       }
+
+       stage('Docker Image') {
+                   steps {
+                       sh 'docker build -t moetez .'
+                   }
+       }
+
+
+       stage('Docker Compose') {
+                   steps {
+                       sh 'docker compose up -d'
+                   }
+       }
+
 
 }
+
 }

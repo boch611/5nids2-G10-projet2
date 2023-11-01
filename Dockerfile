@@ -1,14 +1,4 @@
-# Utilisez une image de base
-FROM python:3.8
-
-# Copiez les fichiers du projet dans l'image
-COPY . /app
-
-# Définissez le répertoire de travail
-WORKDIR /app
-
-# Installez les dépendances
-RUN pip install -r requirements.txt
-
-# Exécutez votre application
-CMD ["python", "app.py"]
+FROM openjdk:8
+ADD target/kaddem-SNAPSHOT-0.1.jar kaddem.jar
+EXPOSE 8089
+ENTRYPOINT ["java", "-jar", "kaddem.jar"]
