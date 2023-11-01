@@ -23,6 +23,7 @@ pipeline {
             steps {
                 sh "mvn deploy"
             }
+<<<<<<< HEAD
        }
 
        stage('Docker Image') {
@@ -42,3 +43,9 @@ pipeline {
 }
 
 }
+
+        }
+       
+}
+}
+
