@@ -28,7 +28,7 @@ pipeline {
 
        stage('Docker Image') {
                    steps {
-                       sh 'docker build -t moetez .'
+                       sh 'docker build -t moetezbouchlaghe-5nids2-g10 .'
                    }
        }
 
@@ -44,8 +44,5 @@ pipeline {
 
 }
 
-        }
-       
-}
-}
+
 
