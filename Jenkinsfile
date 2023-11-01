@@ -18,6 +18,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=squ_583cf301b1e0723f8d1897b26d85a8855f1e82c8'
             }
         }
+        stage("mockito"){
+                    steps {
+                        sh 'mvn -Dtest=mockito test'
+                    }
+                }
      
        stage('mvn deploy'){
             steps {
