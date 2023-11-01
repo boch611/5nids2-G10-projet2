@@ -36,18 +36,18 @@ pipeline {
                    }
        }
 
-      
+
                 stage('Build and Push Docker Image') {
                            steps {
                                script {
-                                   def dockerImage = 'moetezbouchlaghe-5nids2-g10:1.0.0'  // Replace with your image name and tag
+                                   def dockerImage = 'moetezbouchlaghe-5nids2-g10:1.0.0'
 
-                                   // Authenticate with Docker Hub using the credentials
+                                   
                                    withCredentials([usernamePassword( usernameVariable: 'mboch', passwordVariable: 'boch987654321')]) {
-                                       sh """
-                                       docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD
-                                       docker push \$dockerImage
-                                       """
+
+                                     sh'  docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD'
+                                     sh'  docker push \$dockerImage '
+
                                    }
                                }
                            }
