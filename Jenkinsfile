@@ -17,6 +17,26 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+         stage('OWASP Dependency Check') {
+                    steps {
+                        dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'owasp'
+                    }
+                }
+
+                stage('Publish OWASP Dependency Check Report') {
+                    steps {
+                        publishHTML(target: [
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: true,
+                            keepAll: true,
+                            reportDir: 'target',
+                            reportFiles: 'dependency-check-report.html',
+                            reportName: 'OWASP Dependency Check Report'
+                        ])
+                    }
+                }
+                /**
+
         stage('SonarQube Scan') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=squ_583cf301b1e0723f8d1897b26d85a8855f1e82c8'
@@ -59,6 +79,13 @@ pipeline {
                        sh 'mvn -Dtest=Junit test'
                    }
                }
+               
+           stage('Grafana/prometheus') {
+            steps {
+                sh 'docker start cc1f786d46e5'
+                sh 'docker start e896dcb30396'
+            }
+        } */
 
 
 }
