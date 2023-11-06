@@ -54,6 +54,11 @@ pipeline {
                        sh 'docker compose up -d'
                    }
        }
+       stage('Junit') {
+                   steps {
+                       sh 'mvn -Dtest=Junit test'
+                   }
+               }
 
 
 }
