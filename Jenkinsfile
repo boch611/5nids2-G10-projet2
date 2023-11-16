@@ -23,19 +23,7 @@ pipeline {
                     }
                 }
 
-                stage('Publish OWASP Dependency Check Report') {
-                    steps {
-                        publishHTML(target: [
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: true,
-                            keepAll: true,
-                            reportDir: 'target',
-                            reportFiles: 'dependency-check-report.html',
-                            reportName: 'OWASP Dependency Check Report'
-                        ])
-                    }
-                }
-                
+ 
 
         stage('SonarQube Scan') {
             steps {
@@ -88,9 +76,7 @@ pipeline {
 
         } 
 
-        }
-
-
+        
 
 }
 
