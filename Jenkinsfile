@@ -64,31 +64,6 @@ pipeline {
     }   
  }
 
-       stage('Docker Image') {
-                   steps {
-                       sh 'docker build -t moetezbouchlaghe-5nids2-g10 .'
-                   }
-       }
-
-        stage('DOCKERHUB') {
-                          steps {
-                              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                              sh 'docker tag moetezbouchlaghe-5nids2-g10 mboch/moetezbouchlaghe-5nids2g10:1.0.0'
-                              sh 'docker push mboch/moetezbouchlaghe-5nids2g10:1.0.0'
-                          }
-                      }
-
-
-       stage('Docker Compose') {
-                   steps {
-                       sh 'docker compose up -d'
-                   }
-       }
-       stage('Junit') {
-                   steps {
-                       sh 'mvn -Dtest=Junit test'
-                   }
-               }
                
            stage('Grafana/prometheus') {
             steps {
