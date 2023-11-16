@@ -35,7 +35,7 @@ pipeline {
                         ])
                     }
                 }
-                /**
+                
 
         stage('SonarQube Scan') {
             steps {
@@ -85,7 +85,7 @@ pipeline {
                 sh 'docker start cc1f786d46e5'
                 sh 'docker start e896dcb30396'
             }
-        } */
+        } 
 
 
 }
