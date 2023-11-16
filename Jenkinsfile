@@ -85,11 +85,11 @@ pipeline {
                 sh 'docker start cc1f786d46e5'
                 sh 'docker start e896dcb30396'
             }
-<<<<<<< HEAD
+
         } 
-=======
+
         }
->>>>>>> 319a4182d10577cc6c3a5000bc060191c23a5763
+
 
 
 }
