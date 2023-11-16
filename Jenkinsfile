@@ -50,6 +50,20 @@ pipeline {
                     }
                 }
 
+           stage('Nmap Scan') {
+            steps {
+
+        sh 'nmap -p 80,443 192.168.33.10'
+    }
+       }
+
+           stage('Nikto Scan') {
+             steps {
+        
+        sh 'nikto -h 192.168.33.10 -p 80,443'
+    }   
+ }
+
        stage('Docker Image') {
                    steps {
                        sh 'docker build -t moetezbouchlaghe-5nids2-g10 .'
