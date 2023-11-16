@@ -47,7 +47,6 @@ pipeline {
                         sh 'trivy image sonarqube'
                         sh 'trivy image sonatype/nexus3'
                          sh ' trivy image prom/prometheus '
-                           sh ' trivy  grafana/grafana '   
                     }
                 }
 
