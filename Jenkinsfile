@@ -42,6 +42,14 @@ pipeline {
                 sh "mvn deploy"
             }
        }
+               stage("trivy test infra "){
+                    steps {
+                        sh 'trivy image sonarqube'
+                        sh 'trivy image sonatype/nexus3'
+                         sh ' trivy image prom/prometheus '
+                           sh ' trivy  grafana/grafana '   
+                    }
+                }
 
        stage('Docker Image') {
                    steps {
